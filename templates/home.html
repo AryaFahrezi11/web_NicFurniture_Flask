@@ -1,0 +1,53 @@
+{% extends 'layouts/base.html' %}
+{% block title%} Nic Furniture {% endblock %}
+{% block content %}
+
+<!-- SHORT DECRIPRION -->
+<section>
+    <div class="container" style="margin-top: 150px;">
+        <div class="row g-4">
+            <div class="col-12 col-md-7 d-flex align-items-center">
+                <div class="p-2 w-100">
+                    <div class="title mt-4">
+                        <h1>Selamat Datang Di, Nic Furniture</h1>
+                        <h3>Wujudkan Rumah Impian Anda Dengan Kualitas Terbaik</h3>  
+                    </div> 
+                </div> 
+            </div>
+            <div class="col-12 col-md-5">
+                <div class="p-2">
+                    <div class="text-end">
+                        <img src="/static/image/misi.png" class="rounded" alt="background hp" width="95%">
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--  CARD PRODUCT PREVIEW -->
+<section>
+    <div class="container" style="margin-top: 100px;">        
+        <div class="row">
+            <h2 class="text-center">Temukan Produk Terbaik Kami</h2>
+            <hr class="mb-3" style="color: dark;">
+            {% for produk in produk[:8] %}
+            <div class="col-8 col-md-3">
+                <div class="card shadow p-3 mb-5 bg-body-dark rounded" style="width: 100%;">
+                    <img src="{{ produk[2] }}" class="card-img-top" alt="" width="50px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ produk[1] }}</h5>
+                        <p class="card-text">Rp.{{ produk[3] | rupiah }}</p>
+                        <a href="/detail-produk/{{ produk[0] }}" class="btn btn-outline-dark d-flex justify-content-center">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="text-center mt-4" style="margin-bottom: 50px;">
+        <a href="/product" class="btn btn-outline-dark">Lihat Semua Produk</a>
+    </div>
+</section>
+{% endblock %}
